@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create New Book</title>
+</head>
+<body>
+    <h1>Create New Book</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="title">Title:</label><br>
+        <input type="text" name="title" required><br>
+        <label for="author">Author:</label><br>
+        <input type="text" name="author" required><br>
+        <label for="published_date">Published Date:</label><br>
+        <input type="text" name="published_date" required><br>
+        <label for="description">Description:</label><br>
+        <textarea name="description" required></textarea><br>
+        <label for="page_count">Page Count:</label><br>
+        <input type="number" name="page_count" required><br>
+        <label for="categories">Categories:</label><br>
+        <input type="text" name="categories" required><br>
+        <label for="thumbnail_url">Thumbnail URL:</label><br>
+        <input type="url" name="thumbnail_url"><br>
+        <button type="submit">Create Book</button>
+    </form>
+</body>
+</html>
