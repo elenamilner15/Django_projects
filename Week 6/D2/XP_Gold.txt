@@ -1,0 +1,35 @@
+PS C:\Users\elena\Desktop\6TTA\Django_projects\Week 6\D2\students> & "c:/Users/elena/Desktop/6TTA/Django_projects/Week 6/D2/students/env/Scripts/Activate.ps1"
+(env) PS C:\Users\elena\Desktop\6TTA\Django_projects\Week 6\D2\students> python
+Python 3.11.4 (tags/v3.11.4:d2340ef, Jun  7 2023, 05:45:37) [MSC v.1934 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import requests
+>>> response = requests.get('http://localhost:8000/students/')
+>>> print(response.json())
+[{'pk': 3, 'first_name': 'Updated', 'last_name': 'Student', 'email': 'updated@example.com', 'date_joined': '2023-08-15T00:10:26.654527Z'}, {'pk': 4, 'first_name': 'Lora', 'last_name': 'Palmer', 'email': 'lora123@example.com', 'date_joined': '2023-08-15T00:12:23.610351Z'}, {'pk': 5, 'first_name': 'Ziggy', 'last_name': 'Stardust', 'email': 'ziggystardust@example.com', 'date_joined': '2023-08-15T00:13:04.059412Z'}, {'pk': 7, 'first_name': 'Delly', 'last_name': 'Delete', 'email': 'dellydelete@example.com', 'date_joined': '2023-08-15T01:22:18.520592Z'}, {'pk': 8, 'first_name': 'Updated', 'last_name': 'Student', 'email': 'updated.student@example.com', 'date_joined': '2023-08-15T01:26:47.306110Z'}]
+>>> new_student_data = {
+...     "first_name": "New",
+...     "last_name": "Student",
+...     "email": "new.student@example.com"
+... }
+>>> response = requests.post('http://localhost:8000/students/', json=new_student_data)
+>>> print(response.json())
+{'pk': 9, 'first_name': 'New', 'last_name': 'Student', 'email': 'new.student@example.com', 'date_joined': '2023-08-15T01:44:47.889446Z'}
+>>>
+>>> updated_student_data = {
+...     "first_name": "Updated",
+...     "last_name": "Student",
+...     "email": "updated.student@example.com"
+... }
+>>> response = requests.put('http://localhost:8000/students/<pk>/', json=updated_student_data)
+>>> response = requests.put('http://localhost:8000/students/9/', json=updated_student_data)
+>>> print(response.json())
+{'email': ['student with this email already exists.']}
+>>> updated_student_data = {
+...  "first_name": "William",
+... "last_name": "Shakespear",
+... "email": "will.student@example.com"
+... }
+>>> response = requests.put('http://localhost:8000/students/9/', json=updated_student_data)
+>>> print(response.json())
+{'pk': 9, 'first_name': 'William', 'last_name': 'Shakespear', 'email': 'will.student@example.com', 'date_joined': '2023-08-15T01:44:47.889446Z'}
+>>>
