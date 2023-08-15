@@ -1,0 +1,17 @@
+PS C:\Users\elena\Desktop\6TTA\Django_projects\Week 6\D2\DCstudents> & "c:/Users/elena/Desktop/6TTA/Django_projects/Week 6/D2/DCstudents/env/Scripts/Activate.ps1"
+(env) PS C:\Users\elena\Desktop\6TTA\Django_projects\Week 6\D2\DCstudents> Pip install requests
+Requirement already satisfied: charset-normalizer<4,>=2 in c:\users\elena\desktop\6tta\django_projects\week 6\d2\dcstudents\env\lib\site-packages (from requests) (3.2.0)
+Requirement already satisfied: idna<4,>=2.5 in c:\users\elena\desktop\6tta\django_projects\week 6\d2\dcstudents\env\lib\site-packages (from requests) (3.4)
+Requirement already satisfied: urllib3<3,>=1.21.1 in c:\users\elena\desktop\6tta\django_projects\week 6\d2\dcstudents\env\lib\site-packages (from requests) (2.0.4)
+Requirement already satisfied: certifi>=2017.4.17 in c:\users\elena\desktop\6tta\django_projects\week 6\d2\dcstudents\env\lib\site-packages (from requests) (2023.7.22)
+
+[notice] A new release of pip is available: 23.1.2 -> 23.2.1
+[notice] To update, run: python.exe -m pip install --upgrade pip
+(env) PS C:\Users\elena\Desktop\6TTA\Django_projects\Week 6\D2\DCstudents> python
+Python 3.11.4 (tags/v3.11.4:d2340ef, Jun  7 2023, 05:45:37) [MSC v.1934 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import requests
+>>> response = requests.get('http://localhost:8000/students/?date_joined=2023-08-15T02:51:06.751187Z')
+>>> print(response.json())
+[{'pk': 5, 'first_name': 'newname', 'last_name': 'newlastname', 'email': 'newnew@example.com', 'date_joined': '2023-08-15T02:51:06.751187Z'}]        
+>>>
